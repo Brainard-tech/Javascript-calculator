@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: auto;
+            background-image: linear-gradient(to right,#f88f6cb6 , rgb(219, 109, 75));
+        }
+        .calculator_frame{
+            width:800px;
+            height: 500px;
+            background-image: linear-gradient(to right,#f88f6cb6 , rgb(219, 109, 75));
+            border-radius: 10px;
+            margin: auto;
+        }
+        button{
+            background-image: linear-gradient(to left,#f88f6cb6 , rgb(219, 109, 75));
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),  0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            padding: 13px 50px ;
+            border:none;
+            margin: 5px 1px;
+            cursor: pointer;
+            border-radius: 5px;
+            color: white; 
+            width: 30px;          
+        }
+        button:focus{
+            background-image: linear-gradient(to right,#f88f6cb6 , rgb(219, 109, 75));
+            box-shadow: inset -2px -2px 6px rgb(237, 171, 151), inset 2px 2px 6px rgba(175, 86, 37, 0.843);
+        }
+        p{
+            color: white;
+            text-shadow: 1px 1px 2px black, 0 0 25px white, 0 0 5px rgb(255, 85, 0);
+        }
+        input{
+            background-image: linear-gradient(to right,#f88f6cb6 , rgb(219, 109, 75));
+            box-shadow: inset -2px -2px 6px rgb(237, 171, 151), inset 2px 2px 6px rgba(175, 86, 37, 0.843);
+            color: white;
+            text-shadow: 1px 1px 2px black, 0 0 25px white, 0 0 5px rgba(255, 85, 0, 0.999);
+        }
+        input:focus{
+            outline: none;
+            background-image: linear-gradient(to right,#f88f6cb6 , rgb(219, 109, 75));
+            box-shadow: inset -2px -2px 6px rgb(237, 171, 151), inset 2px 2px 6px rgba(175, 86, 37, 0.843);
+        }
+        .input{
+            height: 80px;
+            width: 300px;
+            border: #ccffcc;
+            background-color: white;
+            border-radius: 50px;
+            border-top-left-radius: 1px;
+        }
+        input{
+            height: 75px;
+            width: 250px;
+            border: #ccffcc;
+            background-color: white;
+            border-top-left-radius: 80px;
+            border-bottom-right-radius: 80px;
+        }
+        .input2{
+            height: 75px;
+            width: 120px;
+            padding-right: 30px;
+            border: #ccffcc;
+            background-color: white;
+            border-top-left-radius: 70px;
+            border-bottom-right-radius: 70px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator_frame">
+        <p style="padding:20px 20px 0px;color: #fff;" >Brainard</p>
+        <hr style="background-color: #fff">
+        <p style="padding:0px 20px 0px;color: #fff;"><i>Scientific Calculator</i></p>
+        <p><input type=""  disabled class="input">
+        <input type="text" id="screen" style="margin-left: 20px;padding-left: 27px;" placeholder="👉🏻 Scientific calculator">
+        <input class="input2" id="time" type="datetime-local">
+        </p>
+        <button id="pi" onclick="pi()" style="margin-left: 20px;"><i>π</i></button>
+        <button onclick="shownum('**')"><i>x<sup><small>2</small></sup></i></button>
+        <button onclick="shownum('*(')"><i>(</i></button>
+        <button onclick="shownum(')')"><i>)</i></button>
+        <button id="percent" onclick="percent()"><i>%</i></button>
+        <button id="clear" onclick="clearme()"><i>CE</i></button>
+        <button onclick="del()"><i></i>DEL</button>
+        <button id="sin" onclick="sin()" style="margin-left: 20px;"><i>sin</i></button>
+        <button id="cos" onclick="cos()"><i>cos</i></button>
+        <button id="tan" onclick="tan()"><i>tan</i></button>
+        <button onclick="shownum('7')"><i>7</i></button>
+        <button onclick="shownum('8')"><i>8</i></button>
+        <button onclick="shownum('9')"><i>9</i></button>
+        <button onclick="shownum('/')">/</button>
+        <button id="log" onclick="log()" style="margin-left: 20px;"><i>log</i></button>
+        <button><i>Rad</i></button>
+        <button id="sqrt" onclick="squareRoot()"><i>√</i></button>
+        <button onclick="shownum('4')"><i>4</i></button>
+        <button onclick="shownum('5')"><i>5</i></button>
+        <button onclick="shownum('6')"><i>6</i></button>
+        <button onclick="shownum('*')">*</button>
+        <button onclick="cubeRoot()" id="cubeRoot" style="margin-left: 20px;"><i><sup><small></small>3</sup>√</i></button>
+        <button id="deg" onclick="deg()">Deg</button>
+        <button><i>e</i></button>
+        <button onclick="shownum('1')"><i>1</i></button>
+        <button onclick="shownum('2')"><i>2</i></button>
+        <button onclick="shownum('3')"><i>3</i></button>
+        <button onclick="shownum('-')"><i>-</i></button>
+        <button style="margin-left: 20px;"><i>Ans</i></button>
+        <button onclick="exp()"><i>EXP</i></button>
+        <button><i>x<sup><small>y</small></sup></i></button>
+        <button onclick="shownum('0')"><i>0</i></button>
+        <button onclick="shownum('.')"><i><b>.</b></i></button>
+        <button onclick="solve('=')"><i>=</i></button>
+        <button onclick="shownum('+')"><i>+</i></button>
+</body>
+<script src="main.js"></script>
+</html>
